@@ -1,4 +1,4 @@
-aws_region = "eu-west-3"
+aws_region = "us-west-1"
 team       = "platform"
 product    = "infra"
 
