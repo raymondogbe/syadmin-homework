@@ -1,6 +1,6 @@
 variable "bucket" {
   type = string
-  default = 1ot-platform-state-local
+  default = "1ot-platform-state-local"
 }
 
 variable "force_destroy" {
