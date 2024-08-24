@@ -4,8 +4,7 @@ module "s3_bucket" {
   bucket           = "var.bucket"
   enable_versioning = true
   tags = {
-    Environment = "dev"
-    Owner       = "user"
+    Environment = "var.env"
   }
 }
 #resource "aws_s3_bucket_object" "textfile" {
