@@ -1,7 +1,7 @@
 # TODO create an S3 bucket.
 module "s3_bucket" {
   source           = "./modules/terraform-aws-s3-bucket"
-  bucket           = "var.bucket"
+  bucket           = "1ot-platform-state-local"
   enable_versioning = true
   tags = var.tags
 }
