@@ -19,7 +19,7 @@ provider "aws" {
     lambda         = "http://localstack:4566"
     route53        = "http://localstack:4566"
     redshift       = "http://localstack:4566"
-    s3             = "http://localstack:4566"
+    s3             = "http://s3.localhost.localstack.cloud:4566"
     secretsmanager = "http://localstack:4566"
     ses            = "http://localstack:4566"
     sns            = "http://localstack:4566"
