@@ -1,8 +1,9 @@
 # TODO create an S3 bucket.
-module "s3_bucket" {
-  source           = "./modules/terraform-aws-s3-bucket"
+
+resource "aws_s3_bucket" "s3_bucket" {
   bucket           = "1ot-platform-state-local"
 }
+
 #resource "aws_s3_bucket_object" "textfile" {
 #  bucket                 = local.files_bucket
 #  key                    = "textfile.txt"
