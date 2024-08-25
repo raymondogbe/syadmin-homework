@@ -2,8 +2,6 @@
 module "s3_bucket" {
   source           = "./modules/terraform-aws-s3-bucket"
   bucket           = "1ot-platform-state-local"
-  enable_versioning = true
-  tags = var.tags
 }
 #resource "aws_s3_bucket_object" "textfile" {
 #  bucket                 = local.files_bucket
