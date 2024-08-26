@@ -33,7 +33,7 @@ Go to the bind mount folder containing project files. Note that the files are al
 Initialize the backend state file on S3
 
     terraform init -upgrade \
-        -backend-config=endpoint="http://s3.localhost.localstack.cloud:4566" \
+        -backend-config=endpoint="http://localstack:4566" \
         -backend-config=access_key="myrootaccesskeyid" \
         -backend-config=secret_key="myrootsecretaccesskey" \
         -backend-config=bucket="1ot-platform-state-local" \
