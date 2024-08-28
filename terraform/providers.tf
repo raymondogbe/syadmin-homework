@@ -36,3 +36,15 @@ provider "aws" {
     })
   }
 }
+
+resource "aws_vpc" "localstack_vpc" {
+  cidr_block = "10.90.8.0/21"
+  tags = {
+    Name = "example-vpc"
+  }
+}
+
+resource "aws_subnet" "private" {
+  vpc_id     = aws_vpc.localstack_vpc.id
+  cidr_block = "10.90.8.0/27"
+}
