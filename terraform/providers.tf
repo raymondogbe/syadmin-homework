@@ -40,11 +40,18 @@ provider "aws" {
 resource "aws_vpc" "localstack_vpc" {
   cidr_block = "10.90.8.0/21"
   tags = {
-    Name = "example-vpc"
+    Name = "localstack_vpc"
   }
 }
 
+
 resource "aws_subnet" "private" {
+  count      = length(var.private_subnets)
   vpc_id     = aws_vpc.localstack_vpc.id
-  cidr_block = "10.90.8.0/27"
+  cidr_block = var.private_subnets[count.index]
+
 }
+/* resource "aws_subnet" "private" {
+  vpc_id     = aws_vpc.localstack_vpc.id
+  cidr_block = local.private_subnets[1] #"10.90.8.0/27"
+} */
