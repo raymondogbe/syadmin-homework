@@ -1,8 +1,7 @@
 provider "aws" {
-  region      = var.aws_region
-  access_key  = "myrootaccesskeyid"
-  secret_key  = "myrootsecretaccesskey"
-  max_retries = 30
+  region     = var.aws_region
+  access_key = "myrootaccesskeyid"
+  secret_key = "myrootsecretaccesskey"
   # s3_force_path_style         = true
   skip_credentials_validation = true
   skip_metadata_api_check     = true
@@ -20,7 +19,7 @@ provider "aws" {
     lambda         = "http://localstack:4566"
     route53        = "http://localstack:4566"
     redshift       = "http://localstack:4566"
-    s3             = "http://s3.localhost.localstack.cloud:4566"
+    s3             = "http://localstack.4566"
     secretsmanager = "http://localstack:4566"
     ses            = "http://localstack:4566"
     sns            = "http://localstack:4566"
@@ -52,3 +51,7 @@ resource "aws_subnet" "private" {
   cidr_block = var.private_subnets[count.index]
 
 }
+/* resource "aws_subnet" "private" {
+  vpc_id     = aws_vpc.localstack_vpc.id
+  cidr_block = local.private_subnets[1] #"10.90.8.0/27"
+} */

@@ -7,9 +7,9 @@ data "local_file" "source_webserver" {
 }
 
 module "webserver_lambda" {
-  source        = "./modules/terraform-aws-lambda-py"
-  function_name = local.webserver_function_name
-  description   = "Web server"
-  source_code   = data.local_file.source_webserver.content
-  tags          = var.tags
+  source         = "./modules/terraform-aws-lambda-py"
+  function_name  = local.webserver_function_name
+  description    = "Web server"
+  source_code    = data.local_file.source_webserver.content
+  tags           = var.tags
 }

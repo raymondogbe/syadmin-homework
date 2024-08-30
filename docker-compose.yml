@@ -1,8 +1,8 @@
 version: "3.8"
 
 #networks:
-  #default:
-    #name: localstack-net
+#  default:
+#    name: localstack-net
 
 services:
   dind:
@@ -15,8 +15,6 @@ services:
       - docker_data:/var/lib/docker
     ports:
       - "2375:2375"  # Expose Docker socket on TCP
-    networks:
-      - localstack-net
 
   tfrunner:
     build:
@@ -30,10 +28,7 @@ services:
         target: /mnt/terraform
     depends_on:
       - dind
-      - localstack
-    networks:
-      - localstack-net
-      
+  
   localstack:
     
     image: localstack/localstack:3.6.0
@@ -54,19 +49,10 @@ services:
     volumes:
 #      - "${TMPDIR:-/tmp}/localstack:/tmp/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
-#      - "./localstack/aws:/etc/localstack/init/ready.d"
-    networks:
-      - localstack-net
+      - "./localstack/aws:/etc/localstack/init/ready.d"
     privileged: true
     depends_on:
       - dind
-
-networks:
-    localstack-net:
-      driver: bridge
-      
-volumes:
-  docker_data:
 
 #volumes:
 #    localstack_data:
