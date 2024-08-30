@@ -2,14 +2,32 @@
 
 1) Add another HTTP endpoint that serves a file from an S3 bucket. Create the S3 bucket with Terraform. You can use the [provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) directly or use `modules/terraform-aws-s3-bucket`.
 
+**Answer:
+https://github.com/raymondogbe/syadmin-homework/blob/main/terraform/s3.tf**
+
+
+
 2) Fill `private_subnets` variable with values given the VPC configuration above in the file. There should be three blocks.
+
+**Answer:
+https://github.com/raymondogbe/syadmin-homework/blob/main/terraform/local.auto.tfvars**
 
 There are two options for the 3rd task, choose one. 
 
 1) Make the Localstack depend on [Docker-in-Docker](https://hub.docker.com/_/docker) container socket instead of the Docker running on your local machine.
 2) Add an API that serves text content from DynamoDB table using Lambda.
 
+**Answer:
+I used the Docker in Docker
+https://github.com/raymondogbe/syadmin-homework/blob/main/docker-compose.yml**
+
 Finally, commit (git) your work to the same repository and send it back via public repo link or email. Please add some documentation in MD format to accompany the changes in code.
+
+I had some DNS issues but consulting the documentation helped out.
+![image](https://github.com/user-attachments/assets/d59af812-a127-4512-b781-1e52de633ad8)
+![image](https://github.com/user-attachments/assets/e8cf8e61-f2a5-4f88-be05-dc6004442712)
+
+
 
 ## Prepare the environment
 
