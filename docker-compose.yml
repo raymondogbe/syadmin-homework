@@ -26,8 +26,13 @@ services:
       - type: bind
         source: ./terraform
         target: /mnt/terraform
+    
     depends_on:
       - dind
+      - localstack
+    
+    networks:
+      - localstack-net
   
   localstack:
     
@@ -51,8 +56,15 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "./localstack/aws:/etc/localstack/init/ready.d"
     privileged: true
+    networks:
+      - localstack-net
     depends_on:
       - dind
+volumes:
+  docker_data:
+networks:
+  localstack-net:
+    driver: bridge
 
 #volumes:
 #    localstack_data:
