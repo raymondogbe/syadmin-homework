@@ -9,6 +9,7 @@ resource "aws_s3_bucket_object" "s3_file" {
   key    = "ray-file.txt"
   source = "terraform/ray-file.txt" 
   acl    = "public-read"
+  depends_on = [aws_s3_bucket.s3_bucket_new]
 }
 
 
